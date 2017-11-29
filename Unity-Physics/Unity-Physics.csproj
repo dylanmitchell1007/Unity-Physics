@@ -95,6 +95,9 @@
     <Compile Include="Assets\Scripts\Dylan\FlockBehaviour.cs" />
     <Compile Include="Assets\Scripts\Dylan\MainCameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\Dylan\UIBehaviour.cs" />
+    <Compile Include="Assets\Scripts\HooksLaw\Particle.cs" />
+    <Compile Include="Assets\Scripts\HooksLaw\ParticleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\HooksLaw\SpringDamperBehaviour.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
