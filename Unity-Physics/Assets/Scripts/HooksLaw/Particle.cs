@@ -12,14 +12,15 @@ namespace HooksLaw
             position = Vector3.zero;
             velocity = Vector3.zero;
             acceleration = Vector3.zero;
+            force = Vector3.zero;
             mass = 1;
         }
 
-        public Particle(Vector3 p, Vector3 v, float m)
+        public Particle(Vector3 p, Vector3 v,float m)
         {
             position = p;
             velocity = v;
-            force =
+            force = Vector3.zero;
             acceleration = Vector3.zero;
             mass = m;
         }
@@ -32,15 +33,24 @@ namespace HooksLaw
 
         float mass;
         Vector3 force;
-
+       public bool Locked = false;
 
         // Update is called once per frame
         public Vector3 Update(float deltatime)
         {
+            if(Locked == true)
+            {
+                return Position;
+            }
+            
             acceleration = force / mass;
             velocity += acceleration * deltatime;
+            velocity = Vector3.ClampMagnitude(velocity, 10);
             position += velocity;
             return position;
+            
+            //if locked return
+           
         }
         public void Addforce(Vector3 f)
         {
@@ -51,40 +61,52 @@ namespace HooksLaw
     public class SpringDamper
     {
         Particle m_body1;
+
         Particle m_body2;
+        public Particle particle_1 { get { return m_body1; } }
+        public Particle particle_2 { get { return m_body2; } }
 
-        Vector3 m_contact1;
-        Vector3 m_contact2;
 
-        float _Ks;
-        float _Lo;
-        float m_damping;
+
+        public float _Ks;
+        public float _Lo;
+        public float _Kd;
 
         public SpringDamper()
         {
            
         }
      
-        public SpringDamper(Particle p1, Particle p2, float springConstant, float restLength)
+        public SpringDamper(Particle p1, Particle p2, float springConstant, float restLength, float dampeningFactor)
         {
             m_body1 = p1;
             m_body2 = p2;
             _Ks = springConstant;
+            _Kd = dampeningFactor;
             _Lo = restLength;
+            
         }
-        public void fixedupdate(float deltatime)
+        public void CalculateForce(float deltatime)
         {
-            Vector3 distance = m_body1.Position - m_body2.Position;
-            float length = distance.magnitude;
-
-            Vector3 relativeVelocity = m_body2.Velocity - m_body1.Velocity;
-            Vector3 force = distance * _Ks * (_Lo - length) - m_damping * relativeVelocity;
+            Vector3 length = m_body2.Position - m_body1.Position;
+            float L = length.magnitude;
+            Vector3 E = length / L;
 
 
-            m_body1.Addforce(-force);
-            m_body2.Addforce(force);
-            m_body1.Update(deltatime);
-            m_body2.Update(deltatime);
+            var vOne = m_body1.Velocity;
+            var vTwo = m_body2.Velocity;
+            var v1 = Vector3.Dot(E, vOne);
+            var v2 = Vector3.Dot(E, vTwo);
+
+            float sSwitch = -_Ks * (_Lo - L) - _Kd * (v1 - v2);
+
+            Vector3 force = sSwitch * E;
+           
+          
+
+
+            m_body1.Addforce(force);
+            m_body2.Addforce(-force);
         }
     }
 }
