@@ -16,5 +16,9 @@ namespace HooksLaw
         {
             transform.position = partical.Update(Time.fixedDeltaTime);
         }
+        private void LateUpdate()
+        {
+            transform.position = partical.Position;
+        }
     }
 }

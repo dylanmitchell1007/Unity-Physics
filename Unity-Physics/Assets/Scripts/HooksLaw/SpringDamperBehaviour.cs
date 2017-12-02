@@ -45,7 +45,7 @@ namespace HooksLaw
             springdamper._Kd = dampeningFactor;
             springdamper._Lo = restlength;
 
-            springdamper.CalculateForce(Time.deltaTime);
+            springdamper.CalculateForce();
             
         }
 

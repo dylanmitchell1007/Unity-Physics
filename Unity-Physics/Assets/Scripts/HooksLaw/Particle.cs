@@ -45,10 +45,9 @@ namespace HooksLaw
             
             acceleration = force / mass;
             velocity += acceleration * deltatime;
-            velocity = Vector3.ClampMagnitude(velocity, 10);
             position += velocity;
-            return position;
-            
+            force = Vector3.zero;
+            return position;           
             //if locked return
            
         }
@@ -57,7 +56,7 @@ namespace HooksLaw
             force += f;
         }
     }
-
+    [System.Serializable]
     public class SpringDamper
     {
         Particle m_body1;
@@ -83,10 +82,10 @@ namespace HooksLaw
             m_body2 = p2;
             _Ks = springConstant;
             _Kd = dampeningFactor;
-            _Lo = restLength;
+            _Lo = Vector3.Distance(p1.Position, p2.Position);
             
         }
-        public void CalculateForce(float deltatime)
+        public void CalculateForce()
         {
             Vector3 length = m_body2.Position - m_body1.Position;
             float L = length.magnitude;

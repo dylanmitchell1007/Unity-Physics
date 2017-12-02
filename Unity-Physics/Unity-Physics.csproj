@@ -95,6 +95,8 @@
     <Compile Include="Assets\Scripts\Dylan\FlockBehaviour.cs" />
     <Compile Include="Assets\Scripts\Dylan\MainCameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\Dylan\UIBehaviour.cs" />
+    <Compile Include="Assets\Scripts\HooksLaw\ClothBehaviour.cs" />
+    <Compile Include="Assets\Scripts\HooksLaw\DragAndClickBehaviour.cs" />
     <Compile Include="Assets\Scripts\HooksLaw\Particle.cs" />
     <Compile Include="Assets\Scripts\HooksLaw\ParticleBehaviour.cs" />
     <Compile Include="Assets\Scripts\HooksLaw\SpringDamperBehaviour.cs" />
