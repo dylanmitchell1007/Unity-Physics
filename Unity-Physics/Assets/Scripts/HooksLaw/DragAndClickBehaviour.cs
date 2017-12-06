@@ -6,8 +6,9 @@ namespace HooksLaw
 {
     public class DragAndClickBehaviour : MonoBehaviour
     {
-     
+
         public bool _mousestate;
+        public Particle pat;
         public GameObject target;
         public Vector3 screenSpace;
         public Vector3 offset;
@@ -18,7 +19,7 @@ namespace HooksLaw
             GameObject.FindObjectsOfType<ParticleBehaviour>().ToList();
 
         }
-        GameObject GetClickedObject(out RaycastHit hit)
+       public GameObject GetClickedObject(out RaycastHit hit)
         {
             var go = new GameObject();
             GameObject.FindObjectsOfType<ParticleBehaviour>().ToList();
@@ -29,11 +30,7 @@ namespace HooksLaw
             }
 
             return target;
-        }
-        void Start()
-        {
-
-        }
+        } 
 
         public void Update()
         {
