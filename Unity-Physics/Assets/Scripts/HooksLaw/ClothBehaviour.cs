@@ -141,7 +141,7 @@ namespace HooksLaw
 
             foreach (var Sdamper in dampers)
             {
-                Debug.DrawLine(Sdamper.particle_1.Position, Sdamper.particle_2.Position, Color.green);
+                Debug.DrawLine(Sdamper.particle_1.Position, Sdamper.particle_2.Position, Color.cyan);
                 Sdamper._Ks = springconstant;
                 Sdamper._Kd = dampingfactor;
                 Sdamper._Lo = restlength;
