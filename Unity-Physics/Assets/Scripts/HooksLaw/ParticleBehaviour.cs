@@ -18,6 +18,11 @@ namespace HooksLaw
         }
         private void LateUpdate()
         {
+            if (partical.Locked == true)
+            {
+                //change color
+                
+            }
             transform.position = partical.Position;
         }
     }

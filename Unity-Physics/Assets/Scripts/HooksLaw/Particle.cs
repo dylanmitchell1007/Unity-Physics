@@ -41,6 +41,7 @@ namespace HooksLaw
             if(Locked == true)
             {
                 return Position;
+                force = Vector3.zero;
             }
             
             acceleration = force / mass;
@@ -53,6 +54,8 @@ namespace HooksLaw
         }
         public void Addforce(Vector3 f)
         {
+            if (Locked)
+                return;
             force += f;
         }
     }

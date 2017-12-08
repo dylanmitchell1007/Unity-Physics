@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HooksLaw
 {
@@ -25,11 +26,22 @@ namespace HooksLaw
         public List<GameObject> GOS;
         public List<Particle> particles;
         public List<SpringDamper> dampers;
-        private Vector3 gravity()
-        {
 
-            return new Vector3(0, -0.98f, 0);
+
+        #region UI;
+        public Toggle gravitytoggle;
+      
+
+
+
+
+        #endregion;
+        public void gravity()
+        {
+            useGravity = gravitytoggle.isOn;
+                        
         }
+
         // Use this for initialization
         void Start()
         {
@@ -148,15 +160,16 @@ namespace HooksLaw
 
                 if (useGravity == true)
                 {
-                    Sdamper.particle_1.Addforce(gravity());
-                    Sdamper.particle_2.Addforce(gravity());
+                    Sdamper.particle_1.Addforce(new Vector3(0,-9.81f,0));
+                    Sdamper.particle_2.Addforce(new Vector3(0, -9.81f, 0));
                 }
                 Sdamper.CalculateForce();
 
             }
         }
     }
-    
+
+
 }
     
     
