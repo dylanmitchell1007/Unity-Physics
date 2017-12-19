@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HooksLaw.AerodynamicsForce">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAEAAAAQAAAAAAAAAAAAAEABAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\AerodynamicsForce.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HooksLaw.ClothBehaviour">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BISAAAgAEiIAAEEIAAgAAIAAAAAAAAAAAAAAABgIAAA=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\ClothBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HooksLaw.DragAndClickBehaviour">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASRAAACAyCACCgAIAICAAEAAEAEAQSAYAgTgAQAJAE=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\DragAndClickBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HooksLaw.Particle">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIwAAQAgAAAAAAAgAAAAIAAAAAAAAAQAAAQAAAAEAAQ=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\Particle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HooksLaw.SpringDamper">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAApAAEAAAAAAAAAAAAAAAAAAAAAAAABgAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\Particle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HooksLaw.ParticleBehaviour">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAIAAgAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\ParticleBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HooksLaw.SpringDamperBehaviour">
+    <Position X="1" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAjBAAAAAAAABKQAAAAEAAAAAgIAAABAAAAg=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\SpringDamperBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HooksLaw.Triangles">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAACAAAAAQAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\HooksLaw\Triangles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

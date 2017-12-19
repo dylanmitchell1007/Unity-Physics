@@ -7,6 +7,7 @@ namespace HooksLaw
     [System.Serializable]
     public class Particle
     {
+        public bool IsGravity;
         public Particle()
         {
             position = Vector3.zero;
@@ -16,7 +17,7 @@ namespace HooksLaw
             mass = 1;
         }
 
-        public Particle(Vector3 p, Vector3 v,float m)
+        public Particle(Vector3 p, Vector3 v, float m)
         {
             position = p;
             velocity = v;
@@ -26,36 +27,33 @@ namespace HooksLaw
         }
         [SerializeField]
         Vector3 position;
-        public Vector3 Position { get { return position;}}
+        public Vector3 Position { get { return position; } }
         Vector3 velocity;
         public Vector3 Velocity { get { return velocity; } }
         Vector3 acceleration;
 
         float mass;
         Vector3 force;
-       public bool Locked = false;
+        public bool Locked = false;
 
         // Update is called once per frame
         public Vector3 Update(float deltatime)
         {
-            if(Locked == true)
+            if (Locked == true)
             {
                 return Position;
-                force = Vector3.zero;
             }
-            
+
             acceleration = force / mass;
             velocity += acceleration * deltatime;
             position += velocity;
             force = Vector3.zero;
-            return position;           
+            return position;
             //if locked return
-           
+
         }
         public void Addforce(Vector3 f)
         {
-            if (Locked)
-                return;
             force += f;
         }
     }
@@ -76,9 +74,9 @@ namespace HooksLaw
 
         public SpringDamper()
         {
-           
+
         }
-     
+
         public SpringDamper(Particle p1, Particle p2, float springConstant, float restLength, float dampeningFactor)
         {
             m_body1 = p1;
@@ -86,7 +84,7 @@ namespace HooksLaw
             _Ks = springConstant;
             _Kd = dampeningFactor;
             _Lo = Vector3.Distance(p1.Position, p2.Position);
-            
+
         }
         public void CalculateForce()
         {
@@ -103,8 +101,8 @@ namespace HooksLaw
             float sSwitch = -_Ks * (_Lo - L) - _Kd * (v1 - v2);
 
             Vector3 force = sSwitch * E;
-           
-          
+
+
 
 
             m_body1.Addforce(force);

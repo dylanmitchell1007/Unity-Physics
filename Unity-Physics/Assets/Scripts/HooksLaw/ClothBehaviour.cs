@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 namespace HooksLaw
 {
-
-
     /// <RestLength >
     /// Execution Order(Gravity, spring force)
     /// Bueler integration
@@ -30,7 +28,7 @@ namespace HooksLaw
 
         #region UI;
         public Toggle gravitytoggle;
-      
+
 
 
 
@@ -39,7 +37,7 @@ namespace HooksLaw
         public void gravity()
         {
             useGravity = gravitytoggle.isOn;
-                        
+
         }
 
         // Use this for initialization
@@ -160,7 +158,7 @@ namespace HooksLaw
 
                 if (useGravity == true)
                 {
-                    Sdamper.particle_1.Addforce(new Vector3(0,-9.81f,0));
+                    Sdamper.particle_1.Addforce(new Vector3(0, -9.81f, 0));
                     Sdamper.particle_2.Addforce(new Vector3(0, -9.81f, 0));
                 }
                 Sdamper.CalculateForce();
@@ -171,10 +169,3 @@ namespace HooksLaw
 
 
 }
-    
-    
-
-           
-    
-
-

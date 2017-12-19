@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace HooksLaw
 {
-    
+
     public class ParticleBehaviour : MonoBehaviour
     {
-      
+
         [SerializeField]
         public Particle partical;
 
@@ -16,14 +16,20 @@ namespace HooksLaw
         {
             transform.position = partical.Update(Time.fixedDeltaTime);
         }
+        void OnEnable()
+        {
+            partical = new Particle(transform.position, Vector3.zero, 1);
+        }
+
+        public void UpdateParticle()
+        {
+            partical.Update(Time.deltaTime);
+            transform.position = partical.Position;
+        }
         private void LateUpdate()
         {
-            if (partical.Locked == true)
-            {
-                //change color
-                
-            }
             transform.position = partical.Position;
         }
     }
+
 }
